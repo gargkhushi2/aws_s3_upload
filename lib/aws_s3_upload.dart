@@ -1,4 +1,4 @@
-library aws_s3_upload;
+library;
 
 import 'dart:io';
 
@@ -66,7 +66,7 @@ class AwsS3 {
     } else if (destDir.isNotEmpty) {
       uploadKey = '$destDir/${filename ?? path.basename(file.path)}';
     } else {
-      uploadKey = '${filename ?? path.basename(file.path)}';
+      uploadKey = filename ?? path.basename(file.path);
     }
 
     final stream = http.ByteStream(Stream.castFrom(file.openRead()));
